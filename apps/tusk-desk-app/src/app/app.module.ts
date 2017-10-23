@@ -5,6 +5,7 @@ import { NxModule } from '@nrwl/nx';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketCardComponent } from './tickets/ticket-card/ticket-card.component';
 import { TicketActivityDirective } from './tickets/ticket-activity/ticket-activity.directive';
+import { TicketService } from './tickets/ticket.service';
 
 export function getUserService($injector) {
   return $injector.get('userService');
@@ -19,7 +20,8 @@ export function getUserService($injector) {
       provide: 'userService',
       useFactory: getUserService,
       deps: ['$injector']
-    }
+    },
+    TicketService
   ]
 })
 export class AppModule {
