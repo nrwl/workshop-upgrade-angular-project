@@ -11,7 +11,6 @@ import './assets/app.module.js';
 import './assets/app.config.js';
 import './assets/tickets/tickets.module.js';
 import './assets/tickets/ticket-overview/ticket-overview.component.js';
-import './assets/tickets/ticket-card/ticket-card.component.js';
 import './assets/tickets/ticket-activity/ticket-activity.component.js';
 import './assets/tickets/ticket.service.js';
 import './assets/tickets/user.service.js';

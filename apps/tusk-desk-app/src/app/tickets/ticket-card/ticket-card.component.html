@@ -1,0 +1,18 @@
+<section>
+  <div><strong>{{tuskTicket.title}}</strong></div>
+  <div>
+    Submitted by:
+    <a (click)="onSubmittedBySelected(tuskTicket.submittedBy)">{{tuskTicket.submittedBy}}</a>
+  </div>
+  <div>
+    Company: {{tuskTicket.company}}
+    <span *ngIf="userAssignedToCompany">*</span>
+  </div>
+  <ticket-activity [tuskTicket]="tuskTicket"></ticket-activity>
+</section>
+<button
+  class="notify-icon"
+  [class.on]="notifyList.indexOf(tuskTicket.id) >= 0"
+  (click)="onNotifyToggle()">
+  N
+</button>

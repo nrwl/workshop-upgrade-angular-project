@@ -8,9 +8,9 @@
     <a (click)="onNotifyAll()">Notify All</a>
   </div>
 </header>
-<ticket-card
+<app-ticket-card
   class="card"
   *ngFor="let tuskTicket of tuskTickets"
   [tuskTicket]="tuskTicket"
   [(notifyList)]="notifyList"
-  (onSubmittedBySelect)="onSubmittedBySelected(tuskTicket.submittedBy)"></ticket-card>
+  (onSubmittedBySelect)="onSubmittedBySelected(tuskTicket.submittedBy)"></app-ticket-card>

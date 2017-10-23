@@ -3,12 +3,24 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NxModule } from '@nrwl/nx';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
-import { TicketCardDirective } from './tickets/ticket-card/ticket-card.directive';
+import { TicketCardComponent } from './tickets/ticket-card/ticket-card.component';
+import { TicketActivityDirective } from './tickets/ticket-activity/ticket-activity.directive';
+
+export function getUserService($injector) {
+  return $injector.get('userService');
+}
 
 @NgModule({
   imports: [BrowserModule, NxModule.forRoot()],
-  declarations: [AppComponent, TicketListComponent, TicketCardDirective],
-  entryComponents: [AppComponent, TicketListComponent]
+  declarations: [AppComponent, TicketListComponent, TicketCardComponent, TicketActivityDirective],
+  entryComponents: [AppComponent, TicketListComponent, TicketCardComponent],
+  providers: [
+    {
+      provide: 'userService',
+      useFactory: getUserService,
+      deps: ['$injector']
+    }
+  ]
 })
 export class AppModule {
   ngDoBootstrap(): void {}
