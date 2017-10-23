@@ -1,0 +1,16 @@
+<header class="list-header">
+  <div>
+    <div class="list-title">Tickets</div>
+    <a (click)="onClearFilter()">Clear Submitted By Filter</a>
+  </div>
+  <div class="notification-summary">
+    <div>({{notifyList.length}}) active notifications</div>
+    <a (click)="onNotifyAll()">Notify All</a>
+  </div>
+</header>
+<ticket-card
+  class="card"
+  *ngFor="let tuskTicket of tuskTickets"
+  [tuskTicket]="tuskTicket"
+  [(notifyList)]="notifyList"
+  (onSubmittedBySelect)="onSubmittedBySelected(tuskTicket.submittedBy)"></ticket-card>

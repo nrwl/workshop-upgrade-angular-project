@@ -7,8 +7,8 @@ angular
       <p class="overview-message">Tickets assigned to {{$ctrl.currentUserName}}</p>
       <ticket-list
         class="list"
-        tusk-tickets="$ctrl.tickets"
-        on-filter-change="$ctrl.onFilterChanged(filter)"></ticket-list>
+        [tusk-tickets]="$ctrl.tickets"
+        (on-filter-change)="$ctrl.onFilterChanged($event)"></ticket-list>
     `,
     controller: ['userService', function (userService) {
         this.currentUserName = userService.currentUser();
