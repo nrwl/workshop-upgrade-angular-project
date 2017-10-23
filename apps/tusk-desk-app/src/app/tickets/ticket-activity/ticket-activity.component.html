@@ -1,0 +1,8 @@
+<a class="activity-link"
+   (click)="toggleActivity()"
+   [class.open]="activityVisible">
+  Activity
+</a>
+<div *ngIf="activityVisible">
+  <p class="entry" *ngFor="let entry of ticketActivity">{{entry}}</p>
+</div>

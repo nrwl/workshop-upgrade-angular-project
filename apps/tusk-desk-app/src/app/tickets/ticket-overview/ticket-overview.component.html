@@ -1,0 +1,5 @@
+<p class="overview-message">Tickets assigned to {{currentUserName}}</p>
+<app-ticket-list
+  class="list"
+  [tuskTickets]="tickets"
+  (onFilterChange)="onFilterChanged($event)"></app-ticket-list>

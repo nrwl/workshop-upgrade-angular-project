@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, Inject, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { UserService } from 'apps/tusk-desk-app/src/app/tickets/user.service';
 
 @Component({
   selector: 'app-ticket-card',
@@ -11,7 +12,7 @@ export class TicketCardComponent implements OnInit, OnChanges {
   @Output() onSubmittedBySelect = new EventEmitter();
   userAssignedToCompany;
 
-  constructor(@Inject('userService') private userService, @Inject('$rootScope') private rootScope: any) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {}
 
@@ -25,14 +26,9 @@ export class TicketCardComponent implements OnInit, OnChanges {
     } else {
       this.notifyList.push(this.tuskTicket.id);
     }
-    // we need to force digest to trigger angularjs change detection
-    this.rootScope.$digest();
   }
 
-  // we need a method to broker the onSubmittedBySelect emit to be able to force digest
   onSubmittedBySelected(submittedBy) {
     this.onSubmittedBySelect.emit(submittedBy);
-    // we need to force digest to trigger angularjs change detection
-    this.rootScope.$digest();
   }
 }
