@@ -9,13 +9,6 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import './assets/app.module.js';
 import './assets/app.config.js';
-import './assets/companies/companies.module.js';
-import './assets/companies/company-overview/company-overview.component.js';
-import './assets/companies/company-list/company-list.component.js';
-import './assets/companies/company-card/company-card.component.js';
-import './assets/companies/company-activity/company-activity.component.js';
-import './assets/companies/company.service.js';
-import './assets/companies/team.service.js';
 import { AppComponent } from './app/app.component';
 
 export function bootstrapAngular(extra: StaticProvider[]): any {

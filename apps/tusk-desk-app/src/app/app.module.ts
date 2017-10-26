@@ -10,6 +10,12 @@ import { TicketOverviewComponent } from './tickets/ticket-overview/ticket-overvi
 import { UserService } from './tickets/user.service';
 import { Router, RouterModule } from '@angular/router';
 import { UpgradeComponent } from '@angular/upgrade/static';
+import { CompanyActivityComponent } from './companies/company-activity/company-activity.component';
+import { CompanyCardComponent } from './companies/company-card/company-card.component';
+import { CompanyListComponent } from './companies/company-list/company-list.component';
+import { CompanyOverviewComponent } from './companies/company-overview/company-overview.component';
+import { CompanyService } from './companies/company.service';
+import { TeamService } from './companies/team.service';
 
 @Component({ selector: 'app-empty-element', template: '' })
 export class EmptyComponent {}
@@ -24,13 +30,12 @@ export class AngularJSRouterOutletDirective extends UpgradeComponent {
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      [
-        { path: '', pathMatch: 'full', redirectTo: 'tickets' },
-        { path: 'tickets', component: TicketOverviewComponent },
-        { path: '**', component: EmptyComponent }
-      ]
-    ),
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'tickets' },
+      { path: 'tickets', component: TicketOverviewComponent },
+      { path: 'companies', component: CompanyOverviewComponent },
+      { path: '**', component: EmptyComponent }
+    ]),
     NxModule.forRoot()
   ],
   declarations: [
@@ -40,12 +45,16 @@ export class AngularJSRouterOutletDirective extends UpgradeComponent {
     TicketActivityComponent,
     TicketOverviewComponent,
     EmptyComponent,
-    AngularJSRouterOutletDirective
+    AngularJSRouterOutletDirective,
+    CompanyActivityComponent,
+    CompanyCardComponent,
+    CompanyListComponent,
+    CompanyOverviewComponent
   ],
   entryComponents: [
     AppComponent
   ],
-  providers: [UserService, TicketService]
+  providers: [UserService, TicketService, CompanyService, TeamService]
 })
 export class AppModule {
   constructor(router: Router, @Inject('$rootScope') $rootScope) {

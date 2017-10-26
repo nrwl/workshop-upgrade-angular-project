@@ -1,0 +1,14 @@
+<section>
+  <div><strong>{{tuskCompany.name}}</strong></div>
+  <div>
+    Group:
+    <a (click)="onGroupSelected(tuskCompany.group)">{{tuskCompany.group}}</a>
+  </div>
+  <app-company-activity [tuskCompany]="tuskCompany"></app-company-activity>
+</section>
+<button
+  class="notify-icon"
+  [class.on]="notifyList.indexOf(tuskCompany.id) >= 0"
+  (click)="onNotifyToggle()">
+  N
+</button>

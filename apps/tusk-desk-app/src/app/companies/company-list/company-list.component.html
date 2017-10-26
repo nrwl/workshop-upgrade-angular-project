@@ -1,0 +1,16 @@
+<header class="list-header">
+  <div>
+    <div class="list-title">Companies</div>
+    <a (click)="onClearFilter()">Clear Group Filter</a>
+  </div>
+  <div class="notification-summary">
+    <div>({{notifyList.length}}) active notifications</div>
+    <a (click)="onNotifyAll()">Notify All</a>
+  </div>
+</header>
+<app-company-card
+  class="card"
+  *ngFor="let tuskCompany of tuskCompanies"
+  [tuskCompany]="tuskCompany"
+  [notifyList]="notifyList"
+  (onGroupSelect)="onGroupSelected($event)"></app-company-card>

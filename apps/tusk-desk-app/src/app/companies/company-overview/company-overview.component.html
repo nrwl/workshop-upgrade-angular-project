@@ -1,0 +1,5 @@
+<p class="overview-message">Companies managed by team {{currentTeamName}}</p>
+<app-company-list
+  class="list"
+  [tuskCompanies]="companies"
+  (onFilterChange)="onFilterChanged($event)"></app-company-list>
