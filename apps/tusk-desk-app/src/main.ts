@@ -17,7 +17,6 @@ import './assets/companies/company-activity/company-activity.component.js';
 import './assets/companies/company.service.js';
 import './assets/companies/team.service.js';
 import { AppComponent } from './app/app.component';
-import { TicketOverviewComponent } from './app/tickets/ticket-overview/ticket-overview.component';
 
 export function bootstrapAngular(extra: StaticProvider[]): any {
   setAngularLib(angular);
@@ -31,7 +30,8 @@ export function bootstrapAngular(extra: StaticProvider[]): any {
 
 const downgraded = angular
   .module('downgraded', [downgradeModule(bootstrapAngular)])
-  .directive('appRoot', downgradeComponent({ component: AppComponent, propagateDigest: false }))
-  .directive('ticketOverview', downgradeComponent({ component: TicketOverviewComponent }));
+  .directive('appRoot', downgradeComponent({ component: AppComponent, propagateDigest: false }));
+
+angular.module('tusk-desk-app').component('angularjsRouterOutlet', {template: '<div ng-view></div>'});
 
 angular.bootstrap(document, ['tusk-desk-app', downgraded.name]);
